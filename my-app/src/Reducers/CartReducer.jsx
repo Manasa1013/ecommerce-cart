@@ -5,6 +5,11 @@ export function CartReducer(state, action) {
         ...state,
         products: action.payload,
       };
+    case "SEARCH_PRODUCTS":
+      return {
+        ...state,
+        products: action.payload,
+      };
     case "ADD_TO_CART":
       console.log(state.cart);
       return {

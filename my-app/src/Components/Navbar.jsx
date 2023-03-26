@@ -1,8 +1,24 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart, faHeart } from "@fortawesome/fontawesome-free-solid";
+import {
+  faShoppingCart,
+  faHeart,
+  faSearch,
+} from "@fortawesome/fontawesome-free-solid";
 import { Link } from "react-router-dom";
-
+import { useProduct } from "../Contexts/ProductContext";
 export const Navbar = () => {
+  const { state, dispatch } = useProduct();
+  const [search, setSearch] = useState("");
+  function handleSearch() {
+    let filteredProducts = state.products.filter(
+      ({ title, description }) =>
+        title.toLowerCase().includes(search) ||
+        description.toLowerCase().includes(search)
+    );
+    console.log({ filteredProducts });
+    dispatch({ type: "SEARCH_PRODUCTS", payload: filteredProducts });
+  }
   return (
     <>
       <nav className="navbar-component">
@@ -25,14 +41,25 @@ export const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/products" className="link responsive">
-              Shop
-            </Link>
-          </li>
-          <li>
-            <Link to="/blogs" className="link responsive">
-              Blogs
-            </Link>
+            <input
+              type="search"
+              value={search}
+              placeholder="Search products.."
+              onChange={(e) => {
+                console.log(e.target.value);
+                setSearch(e.target.value.toLowerCase());
+              }}
+              onBlur={() => {
+                handleSearch();
+              }}
+            />
+            <button
+              type="button"
+              className="button__icon"
+              onClick={() => handleSearch()}
+            >
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
           </li>
         </ul>
         <ul className="categories__list">

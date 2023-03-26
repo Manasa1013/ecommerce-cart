@@ -11,11 +11,13 @@ export function SingleProduct({ addToCartClickHandler, setToast }) {
 
   return (
     <section key={productId}>
-      <ProductItem
-        prod={product}
-        addToCartClickHandler={() => addToCartClickHandler(product)}
-        setToast={setToast}
-      />
+      {product && (
+        <ProductItem
+          prod={product}
+          addToCartClickHandler={() => addToCartClickHandler(product)}
+          setToast={setToast}
+        />
+      )}
     </section>
   );
 }
