@@ -3,7 +3,7 @@ import "../index.css";
 import "../Components/ProductItem/ProductItem.css";
 import { getTrimmed, randomDiscount } from "../Utils/commonFunctions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCart, faPlus, faMinus } from "@fortawesome/fontawesome-free-solid";
+import { faPlus, faMinus } from "@fortawesome/fontawesome-free-solid";
 export const CartItem = ({
   prod,
   incClickHandler,

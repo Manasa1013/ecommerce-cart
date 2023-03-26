@@ -1,10 +1,4 @@
-import {
-  useContext,
-  createContext,
-  useState,
-  useEffect,
-  useReducer,
-} from "react";
+import { useContext, createContext, useEffect, useReducer } from "react";
 import { APISERVER } from "../Utils/commonFunctions";
 import { CartReducer } from "../Reducers/CartReducer";
 export const ProductContext = createContext();
@@ -18,7 +12,7 @@ export const ProductProvider = ({ children }) => {
   });
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await fetch(`${APISERVER}/products`)
+      await fetch(`${APISERVER}/products`)
         .then((res) => res.json())
         .then((json) => {
           const modifiedProducts = json.map((item) => ({

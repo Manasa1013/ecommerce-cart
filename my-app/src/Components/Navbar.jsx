@@ -1,12 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faHeart } from "@fortawesome/fontawesome-free-solid";
-import { useToast } from "../Contexts/ToastContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
-  const navigate = useNavigate();
-  const { setToast } = useToast();
-
   return (
     <>
       <nav className="navbar-component">
@@ -18,7 +14,7 @@ export const Navbar = () => {
           </a>
           <header className="inline">
             <Link to="/" className="logo link">
-              Lefties cart
+              Ecommerce store
             </Link>
           </header>
         </div>
@@ -51,7 +47,7 @@ export const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/wishlist" className="link responsive">
+            <Link to="/" className="link responsive">
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>

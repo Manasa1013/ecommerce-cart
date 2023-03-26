@@ -32,7 +32,7 @@ export const Cart = () => {
           <span> Visit Products</span>
         </button>
       </Link>
-      <Link to="/wishlist">
+      <Link to="/">
         <button className="button button__secondary hover">
           <span>Add from Wishlist</span>
         </button>

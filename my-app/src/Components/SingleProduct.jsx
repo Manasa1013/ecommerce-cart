@@ -6,7 +6,8 @@ export function SingleProduct({ addToCartClickHandler, setToast }) {
   const { state } = useProduct();
   let { productId } = useParams();
   productId = parseInt(productId, 10);
-  let product = state.products.find((prod) => productId == prod.id);
+  // console.log(typeof productId, typeof state.products[0].id);
+  let product = state.products.find((prod) => productId === prod.id);
 
   return (
     <section key={productId}>
