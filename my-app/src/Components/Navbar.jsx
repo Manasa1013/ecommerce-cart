@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faHeart } from "@fortawesome/fontawesome-free-solid";
 import { useToast } from "../Contexts/ToastContext";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -46,12 +47,12 @@ export const Navbar = () => {
           </li>
           <li>
             <Link to="/cart" className="link responsive">
-              <em className="fa-solid fa-cart-shopping"></em>
+              <FontAwesomeIcon icon={faShoppingCart} />
             </Link>
           </li>
           <li>
             <Link to="/wishlist" className="link responsive">
-              <em className="fa-solid fa-heart"></em>
+              <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
         </ul>

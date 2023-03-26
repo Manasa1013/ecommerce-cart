@@ -18,6 +18,42 @@ export function CartReducer(state, action) {
           ...state.cart,
         ],
       };
+    case "INC_IN_CART":
+      return {
+        ...state,
+        cart: state.cart.map((item) => {
+          if (item.id === action.payload.id) {
+            // console.log("from incHandler,item's count:", item.count);
+            return { ...item, count: item.count + 1 };
+          }
+          return item;
+        }),
+      };
+    case "DEC_IN_CART":
+      return {
+        ...state,
+        cart: state.cart.map((item) => {
+          if (item.id === action.payload.id) {
+            if (item.count > 1) {
+              // console.log("from DecreaseHandler,item's count:", item.count);
+              return { ...item, count: item.count - 1 };
+            }
+          }
+          return item;
+        }),
+      };
+    case "REMOVE_FROM_CART": {
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+        products: state.products.map((item) => {
+          if (item.id === action.payload.id) {
+            return { ...item, isAdded: false };
+          }
+          return item;
+        }),
+      };
+    }
     case "EDIT_PROD_CART":
       return {
         ...state,
