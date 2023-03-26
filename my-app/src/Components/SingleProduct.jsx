@@ -5,8 +5,8 @@ import { ProductItem } from "./ProductItem/ProductItem";
 export function SingleProduct({ addToCartClickHandler, setToast }) {
   const { state } = useProduct();
   let { productId } = useParams();
-  let product = state.products.find((prod) => productId === prod.id);
-  console.log(productId, product.id === productId);
+  productId = parseInt(productId, 10);
+  let product = state.products.find((prod) => productId == prod.id);
 
   return (
     <section key={productId}>

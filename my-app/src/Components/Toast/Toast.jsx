@@ -8,7 +8,10 @@ export function Toast() {
     <div className={`toast ${toast.isVisible}`}>
       {toast.message}
       <button className="icon--button" onClick={() => hideToastBar()}>
-        <FontAwesomeIcon icon={faTimes} />
+        <FontAwesomeIcon
+          icon={faTimes}
+          style={{ color: "var(--primary-green)" }}
+        />
       </button>
     </div>
   );
